@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Roll the Dice</title>
+</head>
+<body>
+<h1>Roll the Dice</h1>
+<button onclick="rollDice()">Roll the Dice</button>
+<p id="result"></p>
+
+<script>
+  function rollDice() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("result").innerHTML = "You rolled a " + this.responseText;
+      }
+    };
+    xhttp.open("GET", "/rollDice", true);
+    xhttp.send();
+  }
+</script>
+</body>
+</html>
